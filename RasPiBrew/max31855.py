@@ -1,7 +1,7 @@
 from subprocess import Popen, PIPE, call
 import Adafruit_GPIO.SPI as SPI
 import MAX6675.MAX6675 as MAX6675
-
+import math
 import os
 
 class max31855:
@@ -26,7 +26,12 @@ class max31855:
         print("Constructing 1W sensor %s"%(tempSensorId))
 
     def readTempC(self):
+        temp_C = float('nan')
+        i=0
+        while math.is_nan(temp_C)
+            temp_C = self.sensor.readTempC()
+            i=i+1
+            if i > 20 return -99
 
-        temp_C = self.sensor.readTempC()
           
         return temp_C
