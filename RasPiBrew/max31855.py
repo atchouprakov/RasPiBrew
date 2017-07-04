@@ -27,6 +27,6 @@ class max31855:
 
     def readTempC(self):
 
-        temp_C = sensor.readTempC()
+        temp_C = self.sensor.readTempC()
           
         return temp_C
