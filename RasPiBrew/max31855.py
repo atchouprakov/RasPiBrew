@@ -1,6 +1,6 @@
 from subprocess import Popen, PIPE, call
 import Adafruit_GPIO.SPI as SPI
-import Adafruit_MAX31855.MAX31855 as MAX31855
+import MAX6675.MAX6675 as MAX6675
 
 import os
 
@@ -13,15 +13,15 @@ class max31855:
 
 
         # Raspberry Pi software SPI configuration.
-        CLK = 25
-        CS  = 24
-        DO  = 18
-        self.sensor = MAX31855.MAX31855(CLK, CS, DO)
+        # CLK = 25
+        # CS  = 24
+        # DO  = 18
+        # self.sensor = MAX31855.MAX31855(CLK, CS, DO)
 
-        # # Raspberry Pi hardware SPI configuration.
-        # SPI_PORT   = 0
-        # SPI_DEVICE = self.sensorNum
-        # self.sensor = MAX31855.MAX31855(spi=SPI.SpiDev(SPI_PORT, SPI_DEVICE))
+        # Raspberry Pi hardware SPI configuration.
+        SPI_PORT   = 0
+        SPI_DEVICE = self.sensorNum
+        self.sensor = MAX6675.MAX6675(spi=SPI.SpiDev(SPI_PORT, SPI_DEVICE))
        
         print("Constructing 1W sensor %s"%(tempSensorId))
 
