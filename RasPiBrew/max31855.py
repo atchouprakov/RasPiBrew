@@ -31,5 +31,6 @@ class max31855:
         while temp_C!=temp_C :
             temp_C = self.sensor.readTempC()
             i=i+1
-            if i > 20 return -99          
+            if i > 20 :
+                return -99          
         return temp_C
