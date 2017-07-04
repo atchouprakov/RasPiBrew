@@ -28,7 +28,7 @@ class max31855:
     def readTempC(self):
         temp_C = float('nan')
         i=0
-        while math.isnan(temp_C)
+        while temp_C!=temp_C :
             temp_C = self.sensor.readTempC()
             i=i+1
             if i > 20 return -99          
