@@ -11,10 +11,17 @@ class max31855:
         self.sensorNum = max31855.numSensor
         max31855.numSensor += 1
 
-        # Raspberry Pi hardware SPI configuration.
-        SPI_PORT   = 0
-        SPI_DEVICE = self.sensorNum
-        self.sensor = MAX31855.MAX31855(spi=SPI.SpiDev(SPI_PORT, SPI_DEVICE))
+
+        # Raspberry Pi software SPI configuration.
+        CLK = 25
+        CS  = 24
+        DO  = 18
+        sensor = MAX31855.MAX31855(CLK, CS, DO)
+
+        # # Raspberry Pi hardware SPI configuration.
+        # SPI_PORT   = 0
+        # SPI_DEVICE = self.sensorNum
+        # self.sensor = MAX31855.MAX31855(spi=SPI.SpiDev(SPI_PORT, SPI_DEVICE))
        
         print("Constructing 1W sensor %s"%(tempSensorId))
 
