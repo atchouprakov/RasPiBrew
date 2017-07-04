@@ -31,7 +31,7 @@ from pid import pidpy as PIDController
 import xml.etree.ElementTree as ET
 from flask import Flask, render_template, request, jsonify
 
-import Temp1Wire
+import max31855
 import Display
 
 global parent_conn, parent_connB, parent_connC, statusQ, statusQ_B, statusQ_C
@@ -500,7 +500,7 @@ if __name__ == '__main__':
         GPIO.setup(pinNum, GPIO.OUT)
     
     for tempSensorId in xml_root.iter('Temp_Sensor_Id'):
-        myTempSensor = Temp1Wire.Temp1Wire(tempSensorId.text.strip())     
+        myTempSensor = max31855.max31855(tempSensorId.text.strip())     
           
         if len(pinHeatList) >= myTempSensor.sensorNum + 1:
             pinNum = pinHeatList[myTempSensor.sensorNum]
